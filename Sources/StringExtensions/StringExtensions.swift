@@ -30,4 +30,11 @@ public extension String {
             return false
         }
     }
+    
+    /// Επιστροφή της πρώτης γραμμής ενός κειμένου
+    func firstLine() -> String {
+        let linesOfText = self.split(separator: "\n")
+        guard linesOfText.count > 1 else { return self }
+        return String(linesOfText[0])
+    }
 }

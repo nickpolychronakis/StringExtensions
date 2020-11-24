@@ -20,4 +20,32 @@ final class StringExtensionsTests: XCTestCase {
         let numberText = "123aa"
         XCTAssertEqual(false, numberText.isNumberOnly)
     }
+    
+    /// Ελέγχει αν επιστρέφει μόνο η πρώτη γραμμή απο το κείμενο
+    func testFirstLine_returnFirstLine() {
+        let testingTest = "Hello\nWorld"
+        let correctResult = "Hello"
+        
+        let sut = testingTest.firstLine()
+        
+        XCTAssertEqual(sut, correctResult)
+    }
+    
+    func testFirstLine_onlyOneLine() {
+        let testingTest = "Hello World"
+        let correctResult = "Hello World"
+        
+        let sut = testingTest.firstLine()
+        
+        XCTAssertEqual(sut, correctResult)
+    }
+    
+    func testFirstLine_noCharacters() {
+        let testingTest = ""
+        let correctResult = ""
+        
+        let sut = testingTest.firstLine()
+        
+        XCTAssertEqual(sut, correctResult)
+    }
 }
